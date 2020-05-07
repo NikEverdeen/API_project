@@ -19,4 +19,4 @@ def lonlat_distance(a, b):
     distance = math.sqrt(dx * dx + dy * dy)
 
     return distance
-print(lonlat_distance((43.233950, 76.926397), (43.234498, 76.921319)))
+#print(round(lonlat_distance((37.6222, 55.7566), (37.6589, 55.7583))), 'Метров')
