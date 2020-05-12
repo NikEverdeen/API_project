@@ -5,6 +5,8 @@ import os
 
 import math
 
+pygame.font.init()
+
 from distance import lonlat_distance
 from geo import reverse_geocode
 from bis import find_business
@@ -121,7 +123,7 @@ class MapParams(object):
             self.second_lon_lat = point
 
             self.distance_between_two = lonlat_distance(self.first_lon_lat, self.second_lon_lat)
-            print(self.distance_between_two)
+            print('Расстояние между двумя точками:', round(self.distance_between_two), 'метров')
 
         else:
             self.search_result = self.second_search = None
@@ -216,9 +218,11 @@ def main():
         if mp.second_search:
             if mp.use_postal_code and mp.second_search.postal_code:
                 text = render_text(mp.second_search.postal_code + ", " + mp.second_search.address)
+
             else:
                 text = render_text(mp.second_search.address)
-            screen.blit(text, (20, 300))
+            screen.blit(text, (20, 370))
+
 
         # Переключаем экран и ждем закрытия окна.
         pygame.display.flip()
